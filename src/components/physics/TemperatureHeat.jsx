@@ -126,7 +126,12 @@ const TemperatureHeat = ({ onComplete }) => {
   const phaseInfo = getTemperaturePhase()
 
   return (
-    <div style={{ width: '100%', height: '100%', padding: 'var(--spacing-md)' }}>
+    <div style={{ 
+      width: '100%', 
+      minHeight: '100vh', 
+      padding: 'var(--spacing-md)',
+      overflowY: 'auto'
+    }}>
       <h3 style={{ textAlign: 'center', marginBottom: 'var(--spacing-lg)' }}>
         Temperature & Molecular Motion
       </h3>
@@ -135,7 +140,7 @@ const TemperatureHeat = ({ onComplete }) => {
         display: 'grid',
         gridTemplateColumns: '2fr 1fr',
         gap: 'var(--spacing-lg)',
-        height: '70%'
+        minHeight: '70vh'
       }}>
         {/* Particle Simulation */}
         <div>

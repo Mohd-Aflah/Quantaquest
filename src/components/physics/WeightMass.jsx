@@ -123,7 +123,12 @@ const WeightMass = ({ onComplete }) => {
   }, [selectedPlanet, selectedObject, scaleReading])
 
   return (
-    <div style={{ width: '100%', height: '100%', padding: 'var(--spacing-md)' }}>
+    <div style={{ 
+      width: '100%', 
+      minHeight: '100vh',
+      padding: 'var(--spacing-md)',
+      overflowY: 'auto'
+    }}>
       {/* Gravity Visualization */}
       <div className="card" style={{ marginBottom: 'var(--spacing-lg)' }}>
         <h4>Gravity Visualization</h4>

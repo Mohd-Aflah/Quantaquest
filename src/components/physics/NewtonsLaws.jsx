@@ -245,8 +245,13 @@ const NewtonsLaws = ({ onComplete }) => {
   }
 
   return (
-    <div style={{ width: '100%', height: '100%', position: 'relative' }}>
-      <div ref={canvasRef} style={{ width: '100%', height: '60%' }}>
+    <div style={{ 
+      width: '100%', 
+      minHeight: '100vh', 
+      position: 'relative',
+      overflowY: 'auto'
+    }}>
+      <div ref={canvasRef} style={{ width: '100%', height: '60vh' }}>
         {drawVectors()}
       </div>
 

@@ -127,7 +127,12 @@ const SVA = ({ onComplete }) => {
   }, [raceResults, currentTime])
 
   return (
-    <div style={{ width: '100%', height: '100%', padding: 'var(--spacing-md)' }}>
+    <div style={{ 
+      width: '100%', 
+      minHeight: '100vh', 
+      padding: 'var(--spacing-md)',
+      overflowY: 'auto'
+    }}>
       <h3 style={{ textAlign: 'center', marginBottom: 'var(--spacing-lg)' }}>
         Speed, Velocity & Acceleration Race
       </h3>

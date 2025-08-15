@@ -89,7 +89,12 @@ const GravityDrop = ({ onComplete }) => {
   }
 
   return (
-    <div style={{ width: '100%', height: '100%', padding: 'var(--spacing-md)' }}>
+    <div style={{ 
+      width: '100%', 
+      minHeight: '100vh', 
+      padding: 'var(--spacing-md)',
+      overflowY: 'auto'
+    }}>
       <h3 style={{ textAlign: 'center', marginBottom: 'var(--spacing-lg)' }}>
         Gravity Drop Experiment
       </h3>

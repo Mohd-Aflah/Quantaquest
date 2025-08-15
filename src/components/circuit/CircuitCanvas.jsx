@@ -176,12 +176,18 @@ const CircuitCanvas = ({
     ctx.fillRect(-size * 0.6, -size * 0.3, size * 1.2, size * 0.6)
     ctx.strokeRect(-size * 0.6, -size * 0.3, size * 1.2, size * 0.6)
     
+    // Terminal markers (top and bottom)
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--border').trim()
+    ctx.fillRect(-size * 0.1, -size, size * 0.2, size * 0.2) // Top terminal
+    ctx.fillRect(-size * 0.1, size * 0.8, size * 0.2, size * 0.2) // Bottom terminal
+    
     // Bulb glow
     if (isLit) {
       ctx.shadowColor = '#ffff00'
       ctx.shadowBlur = 20
     }
     
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--bg').trim()
     ctx.beginPath()
     ctx.arc(0, 0, size * 0.8, 0, Math.PI * 2)
     ctx.fill()
@@ -201,7 +207,17 @@ const CircuitCanvas = ({
   }
 
   const drawResistor = (ctx, size) => {
+    // Terminal markers (left and right)
+    ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--border').trim()
+    ctx.beginPath()
+    ctx.arc(-size, 0, 5, 0, Math.PI * 2) // Left terminal
+    ctx.fill()
+    ctx.beginPath()
+    ctx.arc(size, 0, 5, 0, Math.PI * 2) // Right terminal
+    ctx.fill()
+    
     // Resistor zigzag
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim()
     ctx.beginPath()
     ctx.moveTo(-size, 0)
     ctx.lineTo(-size * 0.6, 0)
@@ -309,12 +325,19 @@ const CircuitCanvas = ({
       ctx.lineWidth = 2
       ctx.stroke()
       
-      // Add terminal labels for battery
+      // Add terminal labels for all components
+      ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim()
+      ctx.font = '10px Arial'
+      ctx.textAlign = 'center'
+      
       if (component.type === 'battery') {
-        ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim()
-        ctx.font = '10px Arial'
-        ctx.textAlign = 'center'
         ctx.fillText(terminal === 'positive' ? '+' : '-', pos.x, pos.y - 15)
+      } else if (component.type === 'bulb') {
+        ctx.fillText(terminal === 'terminal1' ? 'T1' : 'T2', pos.x, pos.y - 15)
+      } else if (component.type === 'resistor') {
+        ctx.fillText(terminal === 'terminal1' ? 'A' : 'B', pos.x, pos.y - 15)
+      } else if (component.type === 'switch') {
+        ctx.fillText(terminal === 'terminal1' ? 'IN' : 'OUT', pos.x, pos.y - 15)
       }
     })
   }

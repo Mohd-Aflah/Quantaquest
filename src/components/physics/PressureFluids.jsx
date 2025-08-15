@@ -16,7 +16,12 @@ const PressureFluids = ({ onComplete }) => {
   const pressure = selectedFluid.density * gravity * depth // P = ρgh
 
   return (
-    <div style={{ width: '100%', height: '100%', padding: 'var(--spacing-md)' }}>
+    <div style={{ 
+      width: '100%', 
+      minHeight: '100vh', 
+      padding: 'var(--spacing-md)',
+      overflowY: 'auto'
+    }}>
       <h3 style={{ textAlign: 'center', marginBottom: 'var(--spacing-lg)' }}>
         Pressure in Fluids
       </h3>
@@ -25,7 +30,7 @@ const PressureFluids = ({ onComplete }) => {
         display: 'grid',
         gridTemplateColumns: '1fr 2fr',
         gap: 'var(--spacing-lg)',
-        height: '70%'
+        minHeight: '70vh'
       }}>
         {/* Controls */}
         <div>
