@@ -1,0 +1,113 @@
+Create a complete, production-ready, React (Vite) project called **Quantaquest: Learn Through Play**.
+The app must be 100% client-side (no backend), mobile-first, and store progress in localStorage.
+
+
+
+
+============================
+TOP-LEVEL FEATURES
+============================
+- Main Menu with 3 modes:
+  1) Circuit Connect (basic circuits — series/parallel/resistor/switch)
+  2) Physics Playground (mini sandboxes: Newton’s Laws; Weight vs Mass; Speed/Velocity/Acceleration; Pressure & Fluids; Temperature & Heat; Sound Waves; Light Through Lenses/Prism; Gravity Drop)
+- Three-panel layout in each game:
+  Left = Toolbox; Middle = Build/Canvas; Right = Output/Info/Help
+- Light/Dark theme toggle. Respect `prefers-color-scheme` on first load.
+- Accessibility: focus states, ARIA roles, keyboard navigation for menus/buttons, high-contrast mode toggle
+- Responsive: Works at 360×640 up to desktop. Panels collapse vertically on small screens via CSS grid areas.
+- Badges/Achievements tracked per mode; simple modal shows what was earned.
+
+============================
+LOCALSTORAGE KEYS (SPEC)
+============================
+- `stemq:theme` -> "light" | "dark" | "system"
+- `stemq:badges` -> JSON { circuit: string[], bridge: string[], physics: string[] }
+- `stemq:progress` -> JSON { circuit: { completedLevels: number }, bridge: { bestScore: number }, physics: { completedModules: string[] } }
+
+============================
+ROUTING (REACT ROUTER)
+============================
+- `/` -> Home (Main Menu)
+- `/circuit` -> Circuit Connect
+- `/physics` -> Physics Playground
+- Unknown routes redirect to `/`
+
+
+============================
+CIRCUIT CONNECT — SPEC
+============================
+Gameplay:
+- Drag components (Battery, Bulb, Resistor, Switch, Wire) from Left panel to Board (Middle), a snap-to grid (e.g., 12×8).
+- Click a placed component’s endpoints to “start wire”, click another endpoint to connect; draw a path orthogonally; store edges.
+- Simulation evaluates graph:
+  - Determine if there is a closed loop from battery (+ to −). If none, show guidance.
+  - If closed: compute equivalent resistance for series/parallel; if a switch open, circuit = open.
+  - Bulb brightness ≈ I^2 * k, where I = V / R_total; brightness levels: off/dim/bright.
+  - Short circuit (battery + directly to − with ~0Ω): show spark animation + warning in Right panel.
+UI:
+- Right panel shows simplified live schematic and friendly explanations (“Switch is open, so no current flows.”).
+Badges to award:
+- "First Light": bulb lights once.
+- "Parallel Pro": detects parallel branch.
+- "Safety First": user resolves a short circuit.
+
+Levels (provide in circuitData.js):
+- Level 1: Light one bulb with battery + switch + wires
+- Level 2: Add resistor to dim bulb
+- Level 3: Two bulbs in parallel (brighter)
+
+
+============================
+PHYSICS PLAYGROUND — SPEC
+============================
+Common:
+- PhysicsMenu lets users pick modules (cards). Right panel shows short theory + a “Try This” prompt. Track `completedModules` when user hits a small “Got it!” checklist after interacting.
+Modules (implement all):
+1) NewtonsLaws.jsx
+   - Matter.js world; draggable box; “Apply Force” button with angle/magnitude sliders.
+   - Show velocity & acceleration vectors (arrows) updated each tick.
+2) WeightMass.jsx
+   - Gravity selector: Earth(9.81), Moon(1.62), Mars(3.71)
+   - Place object on scale -> show mass constant, weight changes by g.
+3) SVA.jsx
+   - Two carts, sliders: mass, thrust, friction.
+   - Start race; plot speed-time & velocity-time mini graphs on Canvas.
+4) PressureFluids.jsx
+   - Tank with water; slider for depth; density presets (fresh/salt).
+   - Pressure gauge shows p = ρ g h; visualize column.
+5) TemperatureHeat.jsx
+   - Particles in box; “heat” increases average velocity; “cool” decreases.
+6) SoundWaves.jsx
+   - Canvas sine wave; sliders: frequency, amplitude; animate propagation; show wavelength readout λ = v/f (assume v=343 m/s).
+7) LightOptics.jsx
+   - Ray diagram: refract through convex/concave lens and prism.
+   - Snell’s law n1 sinθ1 = n2 sinθ2; sliders: n1, n2.
+   - Show deviation angle and focal behavior.
+8) GravityDrop.jsx
+   - Drop two objects with/without drag (toggle “vacuum mode”); show time to ground difference.
+
+============================
+ACCESSIBILITY & UX
+============================
+- Buttons: role="button", keyboard accessible, space/enter activate
+- Focus visible outlines, escape closes modals
+- Alt text for images; aria-live for badge announcements
+- Color-safe palette; include a High Contrast toggle (CSS class that bumps contrast/font size)
+
+============================
+THEMING
+============================
+- ThemeToggle persists in `stemq:theme`
+- CSS vars: --bg, --panel, --text, --accent, --good, --warn
+- Auto-match system theme on first load; user choice overrides
+
+============================
+README & SCRIPTS
+============================
+README.md must include:
+- Quickstart (Node version, commands)
+- Build + GitHub Pages deploy notes
+- How to add a new Physics module or Circuit level
+- Keyboard shortcuts (e.g., [R] reset level, [H] help)
+
+
