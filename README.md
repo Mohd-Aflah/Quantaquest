@@ -1,11 +1,27 @@
-# Quantaquest: Learn Through Play
+# QuantaQuest: Interactive Physics & Electronics Learning Platform
 
-An interactive educational web application that teaches physics and electronics concepts through engaging simulations and games. Built with React and Vite for modern web performance.
+An innovative educational web application that transforms physics and electronics learning through interactive simulations, games, and hands-on experiments. Built with modern React and advanced visualization technologies to create an engaging STEM learning experience.
 
-![Quantaquest Logo](https://img.shields.io/badge/Quantaquest-Learn%20Through%20Play-blue)
+![QuantaQuest](https://img.shields.io/badge/QuantaQuest-Interactive%20Learning-blue)
 ![React](https://img.shields.io/badge/React-18.2.0-blue)
 ![Vite](https://img.shields.io/badge/Vite-4.3.2-purple)
-![License](https://img.shields.io/badge/License-MIT-green)
+![Physics Engine](https://img.shields.io/badge/Matter.js-Physics%20Engine-green)
+![Canvas](https://img.shields.io/badge/Canvas%20API-Graphics-orange)
+
+## 👨‍💻 About the Project
+
+**QuantaQuest** is developed by **Mohammed Aflah** as part of an internship program at **Pro26**. This project represents a comprehensive approach to STEM education, combining interactive physics simulations with circuit building exercises to create an immersive learning environment.
+
+### 🎯 Mission
+To make physics and electronics concepts accessible and engaging through interactive, hands-on learning experiences that bridge the gap between theoretical knowledge and practical understanding.
+
+### 🏢 Developed At
+**Pro26** - Technology Innovation Hub  
+*Internship Project 2025*
+
+**Developer:** Mohammed Aflah  
+**Supervisor:** Pro26 Technical Team  
+**Duration:** Summer 2025 Internship Program
 
 ## 🚀 Quick Start
 
@@ -17,8 +33,8 @@ An interactive educational web application that teaches physics and electronics 
 
 1. **Clone the repository:**
    ```bash
-   git clone https://github.com/yourusername/quantaquest-learn-through-play.git
-   cd quantaquest-learn-through-play
+   git clone https://github.com/Mohd-Aflah/Quantaquest.git
+   cd Quantaquest
    ```
 
 2. **Install dependencies:**
@@ -42,37 +58,72 @@ An interactive educational web application that teaches physics and electronics 
    npm run preview
    ```
 
-## 🎮 Features
+## � Key Features & Innovations
 
-### 🔌 Circuit Connect
-Interactive circuit building with:
-- Drag-and-drop components (Battery, Bulb, Resistor, Switch)
-- Real-time circuit analysis and simulation
-- Visual feedback for current flow and bulb brightness
-- Progressive levels from basic to complex circuits
-- Educational explanations and safety warnings
+### 🔌 Interactive Circuit Laboratory
+Advanced circuit building simulation featuring:
+- **Drag & Drop Interface**: Intuitive component placement with grid snapping
+- **Real-time Circuit Analysis**: Live electrical calculations and current flow visualization
+- **Smart Terminal Detection**: Visual terminal identification for all components
+- **Progressive Difficulty**: 5 levels from basic circuits to complex parallel/series combinations
+- **Educational Feedback**: Instant explanations of circuit behavior and electrical principles
+- **Component Library**: Battery, Bulbs, Resistors, Switches with realistic electrical properties
 
-**Badges Available:**
-- 🌟 **First Light**: Light up your first bulb
-- ⚡ **Parallel Pro**: Master parallel circuits
-- 🛡️ **Safety First**: Handle a short circuit safely
+**🏆 Circuit Achievements:**
+- ⚡ **First Spark**: Complete your first working circuit
+- 🔄 **Parallel Master**: Design complex parallel circuits
+- ⛓️ **Series Expert**: Master series circuit configurations
+- 🛡️ **Safety Champion**: Demonstrate proper circuit safety practices
 
-### ⚛️ Physics Playground
-Eight interactive physics modules:
+### 🔬 Physics Simulation Engine
+Eight comprehensive physics modules with advanced visualizations:
 
-1. **🚀 Newton's Laws**: Force, mass, and acceleration with draggable objects
-2. **⚖️ Weight vs Mass**: Compare weight on different planets
-3. **🏎️ Speed, Velocity & Acceleration**: Racing carts with motion graphs
-4. **🌊 Pressure & Fluids**: Explore pressure changes with depth
-5. **🌡️ Temperature & Heat**: Visualize molecular motion and kinetic energy
-6. **🔊 Sound Waves**: Create and manipulate wave properties
-7. **🔬 Light & Optics**: Ray tracing through lenses and prisms
-8. **🍎 Gravity Drop**: Compare falling objects with/without air resistance
+1. **🚀 Newton's Laws of Motion**: 
+   - Interactive force application with Matter.js physics engine
+   - Real-time vector visualization and coordinate tracking
+   - Boundary containment and realistic motion physics
 
-**Badges Available:**
-- 🎯 **Physics Explorer**: Complete your first module
-- 📚 **Physics Scholar**: Complete 4 modules
-- 🏆 **Physics Master**: Complete all 8 modules
+2. **⚖️ Weight vs Mass Explorer**: 
+   - Multi-planetary gravity simulation with visual effects
+   - Interactive scale with digital readouts
+   - Gravity field visualization with particle effects
+
+3. **🏎️ Speed, Velocity & Acceleration Dynamics**: 
+   - Racing cart simulation with live motion graphs
+   - Real-time physics calculations and visual feedback
+   - Canvas-based animation with time-step progression
+
+4. **🌊 Pressure & Fluid Mechanics**: 
+   - Depth-pressure relationship visualization
+   - Multiple fluid types with different densities
+   - Interactive pressure measurement tools
+
+5. **🌡️ Temperature & Molecular Motion**: 
+   - Particle simulation showing kinetic theory
+   - Temperature effects on molecular movement
+   - Phase transition demonstrations
+
+6. **🔊 Sound Wave Physics**: 
+   - Wave frequency and amplitude manipulation
+   - Real-time waveform generation and visualization
+   - Sound properties and characteristics exploration
+
+7. **� Light & Optics Laboratory**: 
+   - **Enhanced Ray Tracing**: Incident and reflected ray visualization
+   - **Lens Calculations**: Focal length, object distance, and magnification controls
+   - **Snell's Law Implementation**: Refraction angle calculations with material properties
+   - **Interactive Interface**: Material selection and angle adjustment controls
+
+8. **🍎 Gravity & Motion Studies**: 
+   - Falling object comparison with air resistance
+   - Terminal velocity demonstrations
+   - Mass independence verification
+
+**🏆 Physics Achievements:**
+- 🎯 **Physics Explorer**: Complete your first simulation
+- 📚 **Physics Scholar**: Master 4 different modules  
+- 🔬 **Laboratory Expert**: Complete all 8 modules with excellence
+- ⚛️ **Physics Master**: Achieve perfect understanding across all concepts
 
 ## 🎨 Accessibility Features
 
@@ -194,35 +245,40 @@ Eight interactive physics modules:
    })
    ```
 
-## 📁 Project Structure
+## 📁 Project Architecture
 
 ```
 src/
-├── components/          # Reusable UI components
-│   ├── circuit/        # Circuit-specific components
-│   │   ├── CircuitCanvas.jsx
-│   │   ├── CircuitInfo.jsx
-│   │   └── CircuitToolbox.jsx
-│   ├── physics/        # Physics module components
-│   │   ├── NewtonsLaws.jsx
-│   │   ├── WeightMass.jsx
-│   │   └── ... (8 modules total)
-│   ├── BadgeModal.jsx  # Achievement notifications
-│   └── ThemeToggle.jsx # Theme switching
-├── contexts/           # React Context providers
-│   ├── GameContext.jsx # Game state & achievements
-│   └── ThemeContext.jsx # Theme management
-├── data/              # Static game data
-│   └── circuitData.js # Circuit levels & components
-├── pages/             # Main application pages
-│   ├── Home.jsx       # Main menu
-│   ├── CircuitConnect.jsx
-│   └── PhysicsPlayground.jsx
-├── utils/             # Utility functions
-│   └── circuitUtils.js # Circuit analysis logic
-├── App.jsx            # Main app component
-├── main.jsx          # Application entry point
-└── index.css         # Global styles & CSS variables
+├── components/              # Modular UI components
+│   ├── circuit/            # Circuit simulation components
+│   │   ├── CircuitCanvas.jsx    # Main circuit building interface
+│   │   ├── CircuitInfo.jsx      # Real-time circuit analysis display
+│   │   └── CircuitToolbox.jsx   # Component selection and tools
+│   ├── physics/            # Physics simulation modules
+│   │   ├── NewtonsLaws.jsx      # Force and motion simulation
+│   │   ├── WeightMass.jsx       # Gravity and weight comparison
+│   │   ├── SVA.jsx              # Speed, velocity & acceleration
+│   │   ├── LightOptics.jsx      # Optics and ray tracing
+│   │   ├── PressureFluids.jsx   # Fluid mechanics
+│   │   ├── TemperatureHeat.jsx  # Molecular motion simulation
+│   │   ├── SoundWaves.jsx       # Wave physics
+│   │   └── GravityDrop.jsx      # Falling object experiments
+│   ├── BadgeModal.jsx      # Achievement notification system
+│   └── ThemeToggle.jsx     # Theme switching interface
+├── contexts/               # React Context providers
+│   ├── GameContext.jsx     # Game state, progress & achievements
+│   └── ThemeContext.jsx    # Theme management & accessibility
+├── data/                  # Static configuration and content
+│   └── circuitData.js     # Circuit levels & component definitions
+├── pages/                 # Main application pages
+│   ├── Home.jsx           # Landing page with navigation
+│   ├── CircuitConnect.jsx # Circuit building game
+│   └── PhysicsPlayground.jsx # Physics module hub
+├── utils/                 # Core utility functions
+│   └── circuitUtils.js    # Circuit analysis algorithms
+├── App.jsx               # Root application component
+├── main.jsx             # Application entry point
+└── index.css           # Global styles & CSS custom properties
 ```
 
 ## 🔒 Data Storage
@@ -236,51 +292,100 @@ All user progress is stored locally using `localStorage`:
 
 No personal data is collected or transmitted to external servers.
 
-## 🛠️ Technologies Used
+## 🛠️ Technical Implementation
 
-- **React 18**: Modern React with hooks and concurrent features
-- **Vite**: Fast development server and build tool
-- **React Router**: Client-side routing
-- **Framer Motion**: Smooth animations and transitions
-- **Matter.js**: 2D physics engine for Newton's Laws module
-- **CSS Variables**: Dynamic theming system
-- **Canvas API**: Interactive graphics and simulations
+### Core Technologies
+- **React 18.2.0**: Modern React with hooks, concurrent features, and component optimization
+- **Vite 4.3.2**: Lightning-fast development server with HMR and optimized builds  
+- **React Router**: Single-page application routing with dynamic loading
+- **Framer Motion**: Advanced animations and smooth transitions
+- **Matter.js**: Professional 2D physics engine for realistic simulations
+- **Canvas API**: High-performance graphics rendering for complex visualizations
+- **CSS Variables**: Dynamic theming system with real-time theme switching
 
-## 🤝 Contributing
+### Advanced Features
+- **Responsive Grid System**: 60px grid with smart component snapping
+- **Real-time Physics Calculations**: Live force vectors, motion analysis, and circuit simulation
+- **Local Storage Integration**: Progress persistence and user preference management
+- **Accessibility Compliance**: WCAG 2.1 AA standard with screen reader support
+- **Performance Optimization**: Lazy loading, component memoization, and efficient rendering
 
-1. **Fork the repository**
-2. **Create a feature branch:** `git checkout -b feature/amazing-feature`
-3. **Commit changes:** `git commit -m 'Add amazing feature'`
-4. **Push to branch:** `git push origin feature/amazing-feature`
-5. **Open a Pull Request**
+### Architecture Highlights
+- **Modular Component Design**: Reusable components with clear separation of concerns
+- **Context-based State Management**: Efficient global state handling for themes and progress
+- **Utility-first Approach**: Centralized utility functions for circuit analysis and physics calculations
+- **Event-driven Interactions**: Mouse, keyboard, and touch event handling with collision detection
+
+## 🤝 Contributing & Development
+
+### For Pro26 Team Members
+1. **Fork the repository** from the main Pro26 organization
+2. **Create a feature branch:** `git checkout -b feature/enhanced-simulation`
+3. **Follow coding standards:** Maintain consistency with existing patterns
+4. **Test thoroughly:** Verify functionality across all modules
+5. **Document changes:** Update relevant documentation and comments
+6. **Submit for review:** Create pull request with detailed description
 
 ### Development Guidelines
+- **Code Style**: Follow existing React patterns and component structure
+- **Documentation**: Add JSDoc comments for complex physics calculations
+- **Accessibility**: Maintain WCAG 2.1 compliance in all new features  
+- **Performance**: Test with React DevTools for optimization opportunities
+- **Mobile Support**: Ensure responsive behavior across all device sizes
+- **Educational Value**: Keep learning objectives clear in all implementations
 
-- Follow existing code style and patterns
-- Add JSDoc comments for complex functions
-- Test accessibility with keyboard navigation
-- Ensure mobile responsiveness
-- Add appropriate ARIA labels for screen readers
+### Internship Learning Outcomes
+This project demonstrates proficiency in:
+- ✅ **Modern React Development**: Hooks, Context, and component lifecycle
+- ✅ **Physics Engine Integration**: Matter.js implementation and optimization
+- ✅ **Canvas Graphics Programming**: Complex visualizations and animations
+- ✅ **Educational Software Design**: User experience for learning applications
+- ✅ **Performance Optimization**: Efficient rendering and state management
+- ✅ **Accessibility Implementation**: Inclusive design principles
 
 ## 📄 License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
-## 🙏 Acknowledgments
+## 🙏 Acknowledgments & Credits
 
-- **Physics Simulations**: Inspired by PhET Interactive Simulations
-- **Educational Design**: Based on constructivist learning principles
-- **Accessibility**: Following WCAG 2.1 guidelines
-- **Icons**: Using native emoji for universal compatibility
+### Pro26 Internship Program
+- **Mentorship Team**: For guidance in modern web development practices
+- **Technical Support**: Pro26 engineering team for code reviews and feedback  
+- **Learning Environment**: Providing resources and infrastructure for development
 
-## 📞 Support
+### Educational Inspiration
+- **PhET Interactive Simulations**: Reference for physics simulation design principles
+- **Constructivist Learning Theory**: Educational framework for interactive learning
+- **Accessibility Standards**: WCAG 2.1 guidelines for inclusive design
+- **Open Source Community**: React, Vite, and Matter.js communities for excellent documentation
 
-- **Report Issues**: Use GitHub Issues for bug reports
-- **Feature Requests**: Create an issue with the 'enhancement' label
-- **Documentation**: Check this README and inline code comments
+### Technical Acknowledgments
+- **React Team**: For the powerful component framework
+- **Vite Development Team**: For the exceptional build tool and development experience
+- **Matter.js Contributors**: For the robust 2D physics engine
+- **Educational Technology Researchers**: For insights into effective STEM learning tools
 
 ---
 
-**Made with ❤️ for STEM education**
+## 📄 License & Usage
 
-*Quantaquest: Where learning meets play!* 🎮📚
+This project is developed as part of the Pro26 internship program. All code is available under the MIT License for educational and non-commercial use.
+
+## 📞 Contact & Support
+
+**Developer**: Mohammed Aflah  
+**Organization**: Pro26  
+**Project Type**: Internship Development Project  
+**Year**: 2025
+
+For technical support or questions about this implementation:
+- **Issues**: Use GitHub Issues for bug reports and feature requests
+- **Educational Feedback**: Contact Pro26 team for curriculum integration
+- **Technical Discussion**: Available for peer review and collaboration
+
+---
+
+**🚀 Developed with passion at Pro26**
+
+*QuantaQuest: Where interactive learning transforms physics education* 🔬⚡📚
