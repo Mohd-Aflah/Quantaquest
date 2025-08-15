@@ -114,12 +114,102 @@ const LightOptics = ({ onComplete }) => {
       ctx.stroke()
       ctx.setLineDash([])
     }
+
+    // Draw incident and refracted rays
+    const result = calculateRefraction()
+    const interfaceX = centerX - 100 // Interface position
+    const rayLength = 80
+    
+    // Incident ray
+    ctx.strokeStyle = '#ef4444'
+    ctx.lineWidth = 2
+    const incidentRad = incidentAngle * Math.PI / 180
+    const incidentStartX = interfaceX - rayLength * Math.cos(incidentRad)
+    const incidentStartY = centerY - rayLength * Math.sin(incidentRad)
+    
+    ctx.beginPath()
+    ctx.moveTo(incidentStartX, incidentStartY)
+    ctx.lineTo(interfaceX, centerY)
+    ctx.stroke()
+    
+    // Incident ray arrow
+    ctx.beginPath()
+    ctx.moveTo(interfaceX - 10 * Math.cos(incidentRad - 0.3), centerY - 10 * Math.sin(incidentRad - 0.3))
+    ctx.lineTo(interfaceX, centerY)
+    ctx.lineTo(interfaceX - 10 * Math.cos(incidentRad + 0.3), centerY - 10 * Math.sin(incidentRad + 0.3))
+    ctx.stroke()
+    
+    if (result.totalInternalReflection) {
+      // Total internal reflection - reflected ray
+      ctx.strokeStyle = '#f59e0b'
+      const reflectedStartX = interfaceX + rayLength * Math.cos(incidentRad)
+      const reflectedStartY = centerY - rayLength * Math.sin(incidentRad)
+      
+      ctx.beginPath()
+      ctx.moveTo(interfaceX, centerY)
+      ctx.lineTo(reflectedStartX, reflectedStartY)
+      ctx.stroke()
+      
+      // Reflected ray arrow
+      ctx.beginPath()
+      ctx.moveTo(reflectedStartX - 10 * Math.cos(incidentRad - 0.3), reflectedStartY - 10 * Math.sin(incidentRad - 0.3))
+      ctx.lineTo(reflectedStartX, reflectedStartY)
+      ctx.lineTo(reflectedStartX - 10 * Math.cos(incidentRad + 0.3), reflectedStartY - 10 * Math.sin(incidentRad + 0.3))
+      ctx.stroke()
+    } else {
+      // Refracted ray
+      ctx.strokeStyle = '#10b981'
+      const refractedRad = result.refractedAngle
+      const refractedEndX = interfaceX + rayLength * Math.cos(refractedRad)
+      const refractedEndY = centerY + rayLength * Math.sin(refractedRad)
+      
+      ctx.beginPath()
+      ctx.moveTo(interfaceX, centerY)
+      ctx.lineTo(refractedEndX, refractedEndY)
+      ctx.stroke()
+      
+      // Refracted ray arrow
+      ctx.beginPath()
+      ctx.moveTo(refractedEndX - 10 * Math.cos(refractedRad - 0.3), refractedEndY - 10 * Math.sin(refractedRad - 0.3))
+      ctx.lineTo(refractedEndX, refractedEndY)
+      ctx.lineTo(refractedEndX - 10 * Math.cos(refractedRad + 0.3), refractedEndY - 10 * Math.sin(refractedRad + 0.3))
+      ctx.stroke()
+    }
+    
+    // Draw interface line
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--border').trim()
+    ctx.lineWidth = 2
+    ctx.setLineDash([10, 5])
+    ctx.beginPath()
+    ctx.moveTo(interfaceX, centerY - 100)
+    ctx.lineTo(interfaceX, centerY + 100)
+    ctx.stroke()
+    ctx.setLineDash([])
+    
+    // Draw normal line
+    ctx.strokeStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim()
+    ctx.lineWidth = 1
+    ctx.setLineDash([2, 2])
+    ctx.beginPath()
+    ctx.moveTo(interfaceX, centerY - 50)
+    ctx.lineTo(interfaceX, centerY + 50)
+    ctx.stroke()
+    ctx.setLineDash([])
     
     // Labels
     ctx.fillStyle = getComputedStyle(document.documentElement).getPropertyValue('--text').trim()
     ctx.font = '12px Arial'
     ctx.fillText('F', centerX - focalLength * 2 - 10, centerY + 15)
     ctx.fillText('F', centerX + focalLength * 2 + 5, centerY + 15)
+    ctx.fillText(material1, interfaceX - 80, centerY - 110)
+    ctx.fillText(material2, interfaceX + 20, centerY - 110)
+    
+    // Angle labels
+    ctx.font = '10px Arial'
+    ctx.fillText(`${incidentAngle}°`, incidentStartX + 5, incidentStartY + 15)
+    if (!result.totalInternalReflection && result.refractedAngle) {
+      ctx.fillText(`${(result.refractedAngle * 180 / Math.PI).toFixed(1)}°`, interfaceX + 15, centerY + 25)
+    }
     
   }, [lensType, focalLength, objectDistance, incidentAngle, material1, material2])
 
